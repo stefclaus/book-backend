@@ -1,0 +1,10 @@
+have multiple reviews, books will have different transactions
+
+Book
+:has_many :reviews
+:author -string , :stars - float, :link -string
+
+
+Reviews
+belongs_to :book
+  :book_id -integer, :body -string

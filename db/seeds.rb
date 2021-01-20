@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+book = Book.create(title: 'The Shadow King', author: 'Azanw Mengestew', link: 'none', genre: 'historical fiction' )
+
+review = Review.create(book_id: 1, body: "Ok book", datetime: Date.today, likes: 10, star_rating: 4)

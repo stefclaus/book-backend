@@ -16,9 +16,13 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
+    render json: @book
   end
 
   def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
   end
 
   private

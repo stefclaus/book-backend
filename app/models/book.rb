@@ -4,8 +4,11 @@ class Book < ApplicationRecord
   validates :title, presence: true
 
 #write method ot compute the star average
+
   def update_star(review)
     self.average_stars = self.average_stars + review.star_rating
+  #  self.average_stars = (self.average_stars + review.star_rating)/review.count
+
     self.save
   end
 

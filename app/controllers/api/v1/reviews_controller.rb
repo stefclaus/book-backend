@@ -8,16 +8,22 @@ before_action :set_book
     render json: @reviews
   end
 
-  def create
-
-  end
 
   def show
-
+    @review = @book.reviews.find_by[id: params[:id]]
+#    @review = Review.find(params[:id])
+    render json: @review
   end
 
-  def destroy
+  def create
+    @review = @book.reviews.new(review_params)
     
+  end
+
+
+  def destroy
+    @review = @book.reviews.find_by[id: params[:id]]
+    @review.destroy
   end
 
   private

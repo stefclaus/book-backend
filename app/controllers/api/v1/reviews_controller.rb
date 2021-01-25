@@ -17,7 +17,8 @@ before_action :set_book
 
   def create
     @review = @book.reviews.new(review_params)
-    
+    @review.save
+    render json: @review  
   end
 
 

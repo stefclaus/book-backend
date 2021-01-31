@@ -26,6 +26,13 @@ class Api::V1::BooksController < ApplicationController
     @book.destroy
   end
 
+  def update
+   @book = Book.find(params[:id])
+   @book.update(name: params["tilte"]["author"]["genre"]["link"])
+   @book.save
+   render json: @book
+ end
+
   private
     def book_params
       params.require(:title).permit(:author, :average_stars, :link, :genre)

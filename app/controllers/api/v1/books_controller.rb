@@ -2,11 +2,12 @@ class Api::V1::BooksController < ApplicationController
 
   def index
     @books = Book.all
-    render json:@books
+    render json: @books
 
   end
 
   def create
+    binding.pry
     @book = Book.new(book_params)
     if @book.save
       render json:@book

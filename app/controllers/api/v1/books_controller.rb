@@ -27,9 +27,9 @@ class Api::V1::BooksController < ApplicationController
   end
 
   def update
-   @book = Book.find(params[:id])
-   @book.update(name: params["tilte"]["author"]["genre"]["link"])
-   @book.save
+    @book = Book.find(params[:id])
+    @book.update(name: params["title"]["author"]["genre"]["link"])
+    @book.save
    render json: @book
  end
 

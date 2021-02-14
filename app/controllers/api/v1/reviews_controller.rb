@@ -18,13 +18,15 @@ before_action :set_book
   def create
     @review = @book.reviews.new(review_params)
     @review.save
-    render json: @book  
+    render json: @book
   end
 
 
   def destroy
-    @review = @book.reviews.find_by[id: params[:id]]
-    @review.destroy
+    review = Review.find(params["id"])
+    book = Book.find(review.book_id)
+    review.destroy
+    render json: book
   end
 
   private
@@ -34,7 +36,7 @@ before_action :set_book
     end
 
     def review_params
-      params.require(:body, :book_id).permit(:star_rating, :datetime, :likes)
+      params.permit(:body, :book_id, :star_rating, :datetime, :likes)
     end
 
 end
